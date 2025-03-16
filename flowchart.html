@@ -1,0 +1,33 @@
+flowchart TD
+    A[START] --> B[User Visits Website]
+    B --> C[User Views Homepage]
+    C --> D[User Clicks on "Services" Menu]
+    
+    D --> E[System Retrieves Services from Database]
+    E --> F[Database: Services Table]
+    F --> G[System Displays Service Grid]
+    
+    G --> H[User Selects a Service]
+    H --> I[System Retrieves Service Details]
+    I --> J[Database: Service Details Table]
+    J --> K[System Displays Service Details]
+    
+    K --> L[User Decides to Request Service]
+    L --> M[User Navigates to Contact Form]
+    M --> N[User Fills Contact Form]
+    
+    N --> O[User Submits Request]
+    O --> P[System Validates Form Data]
+    P --> Q[System Stores Request in Database]
+    Q --> R[Database: Service Requests Table]
+    
+    R --> S[System Generates Confirmation]
+    S --> T[User Receives Confirmation]
+    T --> U[END]
+    
+    style A fill:#d4f1f9,stroke:#333
+    style U fill:#d4f1f9,stroke:#333
+    style F fill:#ffe6cc,stroke:#333
+    style J fill:#ffe6cc,stroke:#333
+    style R fill:#ffe6cc,stroke:#333
+    
