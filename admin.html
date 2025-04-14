@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">YOKOHAMA</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="admin-controls">
+            <div class="admin-name">Admin User</div>
+            <a href="#" id="logout-btn">Logout</a>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <!-- Left sidebar with navigation -->
+        <div class="admin-sidebar">
+            <div class="admin-nav">
+                <ul>
+                    <li class="active"><a href="#" data-section="dashboard">Dashboard</a></li>
+                    <li><a href="#" data-section="orders">Orders</a></li>
+                    <li><a href="#" data-section="products">Products</a></li>
+                    <li><a href="#" data-section="customers">Customers</a></li>
+                    <li><a href="#" data-section="reports">Reports</a></li>
+                    <li><a href="#" data-section="settings">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="admin-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="admin-header">
+                    <h1>Dashboard Overview</h1>
+                    <div class="date-filter">
+                        <label for="date-range">Date Range:</label>
+                        <select id="date-range">
+                            <option>Today</option>
+                            <option>Yesterday</option>
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>This Month</option>
+                            <option>Last Month</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Stats overview -->
+                <div class="dashboard-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-title">Total Orders</div>
+                        <div class="stat-number" id="total-orders">1,254</div>
+                        <div class="stat-change positive">+12% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-title">Revenue</div>
+                        <div class="stat-number" id="total-revenue">$85,240</div>
+                        <div class="stat-change positive">+8% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-title">New Customers</div>
+                        <div class="stat-number" id="new-customers">324</div>
+                        <div class="stat-change positive">+5% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-title">Average Rating</div>
+                        <div class="stat-number" id="avg-rating">4.8/5</div>
+                        <div class="stat-change negative">-0.1 from last month</div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h3>Monthly Sales</h3>
+                        <div class="chart" id="sales-chart">
+                            <canvas id="monthlySalesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Customer Demographics</h3>
+                        <div class="chart" id="demographics-chart">
+                            <canvas id="demographicsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent activity -->
+                <div class="recent-activity">
+                    <h3>Recent Orders</h3>
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Product</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-orders">
+                            <tr>
+                                <td>#YK-12345</td>
+                                <td>John Smith</td>
+                                <td>Premium Tires x4</td>
+                                <td>April 15, 2025</td>
+                                <td>$840.00</td>
+                                <td>Completed</td>
+                                <td><button class="view-btn">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>#YK-12344</td>
+                                <td>Mary Johnson</td>
+                                <td>Wheel Alignment Service</td>
+                                <td>April 14, 2025</td>
+                                <td>$120.00</td>
+                                <td>Processing</td>
+                                <td><button class="view-btn">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>#YK-12343</td>
+                                <td>Robert Brown</td>
+                                <td>Performance Wheels x4</td>
+                                <td>April 14, 2025</td>
+                                <td>$1,250.00</td>
+                                <td>Shipped</td>
+                                <td><button class="view-btn">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>#YK-12342</td>
+                                <td>Sarah Davis</td>
+                                <td>Winter Tires x4</td>
+                                <td>April 13, 2025</td>
+                                <td>$760.00</td>
+                                <td>Completed</td>
+                                <td><button class="view-btn">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>#YK-12341</td>
+                                <td>James Wilson</td>
+                                <td>Brake Service Package</td>
+                                <td>April 13, 2025</td>
+                                <td>$350.00</td>
+                                <td>Scheduled</td>
+                                <td><button class="view-btn">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="content-section">
+                <div class="admin-header">
+                    <h1>Orders Management</h1>
+                    <div class="search-filter">
+                        <input type="text" id="order-search" placeholder="Search orders...">
+                        <button id="search-btn">Search</button>
+                    </div>
+                </div>
+                <div class="orders-content">
+                    <h3>All Orders</h3>
+                    <p>Orders section content will be displayed here.</p>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products" class="content-section">
+                <div class="admin-header">
+                    <h1>Products Management</h1>
+                </div>
+                <div class="products-content">
+                    <h3>All Products</h3>
+                    <p>Products section content will be displayed here.</p>
+                </div>
+            </section>
+
+            <!-- Customers Section -->
+            <section id="customers" class="content-section">
+                <div class="admin-header">
+                    <h1>Customers Management</h1>
+                </div>
+                <div class="customers-content">
+                    <h3>All Customers</h3>
+                    <p>Customers section content will be displayed here.</p>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="admin-header">
+                    <h1>Reports</h1>
+                </div>
+                <div class="reports-content">
+                    <h3>All Reports</h3>
+                    <p>Reports section content will be displayed here.</p>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <div class="admin-header">
+                    <h1>Settings</h1>
+                </div>
+                <div class="settings-content">
+                    <h3>System Settings</h3>
+                    <p>Settings section content will be displayed here.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
