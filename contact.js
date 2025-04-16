@@ -10,25 +10,25 @@
                         url: 'contact_process.php',
                         data: $(this).serialize(),
                         success: function(response) {
-                            // Show SweetAlert based on the PHP response
+                            // Show SweetAlert
                             if (response == 'Failed') {
                                 Swal.fire({
                                     icon: 'error',
-                                    title: 'Monggoloid kaba?!',
-                                    text: 'not saved',
+                                    title: 'Message sending Failed!',
+                                    text: 'not sent',
                                 });
                             } else if (response == 'Success') {
                                 $('#contactForm').trigger("reset");
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'Sign Up Successful',
-                                    text: 'saved',
+                                    title: 'Messsage Sent Successfuly',
+                                    text: 'sent',
                                 });
                             } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Error!',
-                                    text: 'An error occurred during sign up. Please try again.',
+                                    text: 'An error occurred during the process. Please try again.',
                                 });
                             }
                         },
