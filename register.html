@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="login-admin.css">
-    <script src="homepage.js"></script>
+    <!-- <script src="homepage.js"></script> -->
     <title>Register - YOKOHAMA - Minerva Tires</title>
 </head>
 <body>
@@ -31,7 +31,7 @@
                 <p>Please fill in the details below to register</p>
             </div>
             
-            <form class="login-form">
+            <form class="login-form" action="register-process.php" method="POST">
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
                     <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
@@ -51,11 +51,11 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Create a password" required>
                 </div>
-                
-                <div class="form-group">
+            
+                <!-- <div class="form-group">
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
-                </div>
+                </div> -->
                 
                 <div class="checkbox-group terms">
                     <input type="checkbox" id="terms" name="terms" required>
@@ -70,7 +70,11 @@
             </div>
         </div>
     </main>
-    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="register.js"></script>
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
