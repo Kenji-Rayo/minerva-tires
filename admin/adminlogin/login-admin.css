@@ -81,7 +81,7 @@ body {
 /* Remember Me and Forgot Password Row */
 .remember-forgot {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin-bottom: 25px;
     font-size: 15px;

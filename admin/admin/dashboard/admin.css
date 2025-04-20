@@ -1,0 +1,328 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #e60012; /* Red color for Yokohama branding */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e60012;
+}
+
+.admin-controls {
+    display: flex;
+    align-items: center;
+}
+
+.admin-name {
+    margin-right: 20px;
+}
+
+/* Admin Container Styles */
+.admin-container {
+    display: flex;
+}
+
+/* Sidebar Styles */
+.admin-sidebar {
+    width: 200px;
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    position: fixed; /* Make the sidebar fixed */
+    height: 100%; /* Full height */
+}
+
+.admin-nav ul {
+    padding: 0;
+    flex-direction: column;
+}
+
+.admin-nav ul li {
+    margin: 15px 0;
+}
+
+.admin-nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 8px 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-nav ul li a:hover {
+    background-color: #495057;
+    text-decoration: none;
+}
+
+.admin-nav ul li.active a {
+    font-weight: bold;
+    background-color: #007bff;
+}
+
+/* Main Content Styles */
+.admin-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 220px; /* Add margin to the left to accommodate the sidebar */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.date-filter, .search-filter {
+    display: flex;
+    align-items: center;
+}
+
+.date-filter label {
+    margin-right: 10px;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Dashboard Overview */
+.dashboard-overview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stat-change {
+    font-size: 14px;
+}
+
+.stat-change.positive {
+    color: green;
+}
+
+.stat-change.negative {
+    color: red;
+}
+
+/* Dashboard Charts */
+.dashboard-charts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.chart {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 300px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-placeholder {
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* Recent Activity */
+.recent-activity {
+    margin-bottom: 20px;
+}
+
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.activity-table th, .activity-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.activity-table th {
+    background-color: #007BFF;
+    color: white;
+    font-weight: 500;
+}
+
+.activity-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.activity-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Buttons */
+button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0069d9;
+}
+
+.view-btn {
+    background-color: #6c757d;
+    font-size: 12px;
+}
+
+.view-btn:hover {
+    background-color: #5a6268;
+}
+
+#search-btn {
+    margin-left: 10px;
+}
+
+/* Form Controls */
+select, input {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    outline: none;
+}
+
+select:focus, input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#order-search {
+    width: 250px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .dashboard-overview, .dashboard-charts {
+        flex-wrap: wrap;
+    }
+    
+    .stat-card, .chart-container {
+        flex: 0 0 calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-sidebar {
+        width: 70px;
+    }
+    
+    .admin-sidebar .admin-nav ul li a {
+        justify-content: center;
+    }
+    
+    .admin-content {
+        margin-left: 90px;
+    }
+    
+    .stat-card, .chart-container {
+        flex: 0 0 100%;
+    }
+}

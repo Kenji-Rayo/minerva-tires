@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':pass'  => $pass
         ]);
 
-        echo "Success"; // ✅ This is what AJAX checks for
+        echo "Success"; // ✅ This is what AJAX checks para malaman nya kung muntik kana sumakses
 
     } catch (PDOException $e) {
         echo "Registration failed: " . $e->getMessage();

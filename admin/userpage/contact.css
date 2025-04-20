@@ -1,0 +1,385 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #444;
+  background-color: #f5f7fa;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header */
+header {
+  background-color: #1a202c;
+  color: #fff;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #fff;
+  position: relative;
+}
+
+.logo:after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 35px;
+  height: 3px;
+  background-color: #4c6ef5;
+  transition: width 0.3s ease;
+}
+
+.logo:hover:after {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 30px;
+  position: relative;
+}
+
+nav ul li a {
+  color: #e2e8f0;
+  font-weight: 500;
+  padding: 6px 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4c6ef5;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #4c6ef5;
+}
+
+nav ul li a:hover:after {
+  width: 100%;
+}
+
+/* Contact Section */
+.contact {
+  padding: 120px 60px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+  min-height: calc(100vh - 70px - 300px);
+  position: relative;
+}
+
+.contact:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="10" cy="10" r="8" fill="%234c6ef510"/><circle cx="90" cy="90" r="10" fill="%234c6ef508"/><circle cx="50" cy="30" r="15" fill="%234c6ef505"/></svg>');
+  background-size: 200px;
+  opacity: 0.6;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 60px;
+  position: relative;
+  color: #1a202c;
+  font-weight: 700;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(to right, #4c6ef5, #7795f8);
+  border-radius: 2px;
+}
+
+.contact-form {
+  max-width: 850px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(76, 110, 245, 0.1);
+}
+
+.contact-form:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, #4c6ef5, #7795f8);
+}
+
+.form-group {
+  margin-bottom: 28px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 15px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s;
+  background-color: #f8fafc;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #4c6ef5;
+  box-shadow: 0 0 0 3px rgba(76, 110, 245, 0.15);
+  background-color: #fff;
+}
+
+textarea {
+  height: 180px;
+  resize: vertical;
+}
+
+.btn {
+  background: linear-gradient(to right, #4c6ef5, #7795f8);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(76, 110, 245, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(76, 110, 245, 0.4);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Error message styling */
+.error-message {
+  color: #e53e3e;
+  font-size: 14px;
+  margin-top: 6px;
+  display: none;
+  font-weight: 500;
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+  border-color: #e53e3e;
+  background-color: #fff5f5;
+}
+
+.form-group.error .error-message {
+  display: block;
+}
+
+/* Success message styling */
+.success-message {
+  background-color: #f0fff4;
+  color: #2f855a;
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: none;
+  text-align: center;
+  border-left: 5px solid #2f855a;
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  background-color: #1a202c;
+  color: #e2e8f0;
+  padding: 70px 30px 30px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  margin-bottom: 40px;
+  min-width: 250px;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 12px;
+  color: #fff;
+}
+
+.footer-section h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 45px;
+  height: 3px;
+  background-color: #4c6ef5;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: #a0aec0;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #4c6ef5;
+  padding-left: 5px;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 25px;
+  border-top: 1px solid #2d3748;
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 18px;
+  }
+  
+  nav ul {
+    margin-top: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 6px 12px;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .contact {
+    padding: 80px 25px;
+  }
+  
+  .contact-form {
+    padding: 35px 25px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-section h3:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .section-title {
+    font-size: 1.9rem;
+  }
+  
+  .contact {
+    padding: 60px 15px;
+  }
+  
+  .contact-form {
+    padding: 30px 20px;
+  }
+  
+  input, select, textarea {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+}
