@@ -1,46 +1,58 @@
 <?php
-
-// ✅ Enable error reporting for debugging (only in development)
+// ✅ Enable error reporting for debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// ✅ Include your database connection file
-include '../dbconnection/connector.php';
+// include '../dbconnection/connector.php';
 
-// ✅ Check if the form is submitted via POST
+// 🔥 ADDED PHPMailer imports
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     // ✅ Get form data
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $inquiry_type = $_POST['inquiry_type'];
-    $message = $_POST['message'];
+    $name         = $_POST['name']         ?? '';
+    $email        = $_POST['email']        ?? '';
+    $inquiry_type = $_POST['inquiry_type'] ?? '';
+    $message      = $_POST['message']      ?? '';
 
+    // validation
+    if (empty($name) || empty($email) || empty($message)) {
+        echo "Failed";
+        exit;
+    }
+
+    // 🔥 SET UP PHPMailer
+    $mail = new PHPMailer(true);
     try {
-        // ✅ Prepare insert statement
-        $sql = "INSERT INTO contacts (name, email, inquiry_type, message) 
-                VALUES (:name, :email, :inquiry_type, :message)";
-        $stmt = $pdo->prepare($sql);
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'minervatires@gmail.com';  // Gmail address
+        $mail->Password   = 'oskrmswaoonzfbht';       // App Password
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
 
-        // ✅ Bind parameters
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':inquiry_type', $inquiry_type);
-        $stmt->bindParam(':message', $message);
+        // 🔥 Email headers & body
+        $mail->setFrom($email, $name);
+        $mail->addAddress('minervatires@gmail.com', 'Minerva Tires');
+        $mail->Subject = "Inquiry Type: {$inquiry_type}";
+        $mail->Body    = "You’ve got a new message:\n\n"
+                       . "Name: {$name}\n"
+                       . "Email: {$email}\n"
+                       . "Inquiry Type: {$inquiry_type}\n\n"
+                       . "Message:\n{$message}";
 
-        // ✅ Execute and return only clean response
-        if ($stmt->execute()) {
-            ob_clean(); // ✅ Clear any unexpected output
-            echo "Success"; // ✅ Must match what JS is expecting
-        } else {
-            ob_clean();
-            echo "Failed"; // ✅ Safe fallback
-        }
-
-    } catch (PDOException $e) {
-        ob_clean(); // ✅ Ensure clean response on error
-        echo "Failed"; // ❌ Avoid printing $e->getMessage() for AJAX use
+        // 🔥 Send
+        $mail->send();
+        echo "Success"; // ✅ matches JS
+    } catch (Exception $e) {
+        echo "Failed";  // ✅ fallback
     }
 }
 ?>

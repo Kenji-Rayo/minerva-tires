@@ -1,44 +1,43 @@
-
-            // JavaScript to handle form submission using AJAX
-            $(document).ready(function() {
-                $('#contactForm').on('submit', function(e) {
-                    e.preventDefault(); // Prevent the form from submitting traditionally
-    
-                    // Send the form data via AJAX
-                    $.ajax({
-                        type: 'POST',
-                        url: 'contact_process.php',
-                        data: $(this).serialize(),
-                        success: function(response) {
-                            // Show SweetAlert
-                            if (response == 'Failed') {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Message sending Failed!',
-                                    text: 'not sent',
-                                });
-                            } else if (response == 'Success') {
-                                $('#contactForm').trigger("reset");
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Messsage Sent Successfuly',
-                                    text: 'sent',
-                                });
-                            } else {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Error!',
-                                    text: 'An error occurred during the process. Please try again.',
-                                });
-                            }
-                        },
-                        error: function() {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error!',
-                                text: 'There was an issue with your request. Please try again.',
-                            });
-                        }
-                    });
-                });
+$(document).ready(function() {
+    $('#contactForm').on('submit', function(e) {
+      e.preventDefault(); // Prevent page reload
+  
+      $.ajax({
+        type: 'POST',
+        url: 'contact_process.php',
+        data: $(this).serialize(),
+        success: function(response) {
+          const res = response.trim().toLowerCase();  // normalize response galing to kay gpt sana tama
+  
+          if (res === 'failed') {
+            Swal.fire({
+              icon: 'error',
+              title: 'Message sending Failed!',
+              text: 'Not sent',
             });
+          } else if (res === 'success') {
+            $('#contactForm')[0].reset();  // auto clear para walanang refresh-2x
+            Swal.fire({
+              icon: 'success',
+              title: 'Message Sent Successfully',
+              text: 'Sent',
+            });
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: 'An unexpected error occurred. Please try again.',
+            });
+          }
+        },
+        error: function() {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'There was an issue sending your message. Please try again.',
+          });
+        }
+      });
+    });
+  });
+  
