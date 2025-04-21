@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Plain‑text comparison (no hashing)
         if ($admin && $password === $admin['pass']) {
             $_SESSION['admin_id'] = $admin['id'];
             echo "success";
