@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Yokohama Admin</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">YOKOHAMA</div>
+        </div>
+       
+        <div class="admin-controls">
+            <div class="admin-name">Admin User</div>
+            <a href="../adminlogin/login-admin.html" id="logout-btn">Logout</a>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <!-- Left sidebar with navigation -->
+        <div class="admin-sidebar">
+            <div class="admin-nav">
+                <ul>
+                    
+                    <li><a href="admin.html" >Dashboard</a></li>
+                    <li><a href="orders.html" >Orders</a></li>
+                    <li><a href="services.html" >Services</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="reports.html" >Reports</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Main content area -->
+        <div class="admin-content">
+            <!-- Reports Section -->
+            <section id="reports" class="content-section active">
+                <div class="admin-header">
+                    <h1>Reports</h1>
+                    <div class="action-bar">
+                        <div class="date-filter">
+                            <label for="report-date-range">Date Range:</label>
+                            <select id="report-date-range">
+                                <option>Today</option>
+                                <option>Yesterday</option>
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                                <option selected>This Month</option>
+                                <option>Last Month</option>
+                                <option>This Quarter</option>
+                                <option>This Year</option>
+                                <option>Custom Range</option>
+                            </select>
+                        </div>
+                        <button class="export-btn" id="export-report">Export to CSV</button>
+                        <button class="print-btn" id="print-report">Print Report</button>
+                    </div>
+                </div>
+
+                <!-- Report Types -->
+                <div class="report-types">
+                    <div class="report-tabs">
+                        <button class="report-tab active" data-report="sales">Sales Report</button>
+                        <button class="report-tab" data-report="inventory">Inventory Report</button>
+                        <button class="report-tab" data-report="service">Service Report</button>
+                        <button class="report-tab" data-report="customer">Customer Report</button>
+                        <button class="report-tab" data-report="employee">Employee Report</button>
+                    </div>
+                </div>
+
+                <!-- Report Overview -->
+                <div class="report-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-title">Total Sales</div>
+                        <div class="stat-number">$85,240</div>
+                        <div class="stat-change positive">+8% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-title">Items Sold</div>
+                        <div class="stat-number">1,254</div>
+                        <div class="stat-change positive">+12% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔧</div>
+                        <div class="stat-title">Services Completed</div>
+                        <div class="stat-number">342</div>
+                        <div class="stat-change positive">+5% from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💯</div>
+                        <div class="stat-title">Profit Margin</div>
+                        <div class="stat-number">32%</div>
+                        <div class="stat-change positive">+2% from last month</div>
+                    </div>
+                </div>
+
+                <!-- Charts and Reports -->
+                <div class="report-charts">
+                    <div class="chart-container full-width">
+                        <h3>Monthly Sales Overview</h3>
+                        <div class="chart" id="sales-trend-chart">
+                            <canvas id="monthlySalesTrendChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Sales by Category</h3>
+                        <div class="chart" id="sales-category-chart">
+                            <canvas id="salesCategoryChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>Top Selling Products</h3>
+                        <div class="chart" id="top-products-chart">
+                            <canvas id="topProductsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Reports -->
+                <div class="detailed-reports">
+                    <h3>Sales by Product</h3>
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Units Sold</th>
+                                <th>Revenue</th>
+                                <th>Avg. Price</th>
+                                <th>% of Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>YK-T001</td>
+                                <td>Premium All-Season Tires</td>
+                                <td>Tires</td>
+                                <td>124</td>
+                                <td>$24,800</td>
+                                <td>$200.00</td>
+                                <td>29.1%</td>
+                            </tr>
+                            <tr>
+                                <td>YK-T002</td>
+                                <td>Performance Summer Tires</td>
+                                <td>Tires</td>
+                                <td>98</td>
+                                <td>$19,600</td>
+                                <td>$200.00</td>
+                                <td>23.0%</td>
+                            </tr>
+                            <tr>
+                                <td>YK-W001</td>
+                                <td>Performance Alloy Wheels</td>
+                                <td>Wheels</td>
+                                <td>56</td>
+                                <td>$16,800</td>
+                                <td>$300.00</td>
+                                <td>19.7%</td>
+                            </tr>
+                            <tr>
+                                <td>YK-S001</td>
+                                <td>Wheel Alignment Service</td>
+                                <td>Services</td>
+                                <td>87</td>
+                                <td>$10,440</td>
+                                <td>$120.00</td>
+                                <td>12.2%</td>
+                            </tr>
+                            <tr>
+                                <td>YK-S002</td>
+                                <td>Oil Change Service</td>
+                                <td>Services</td>
+                                <td>132</td>
+                                <td>$9,900</td>
+                                <td>$75.00</td>
+                                <td>11.6%</td>
+                            </tr>
+                            <tr>
+                                <td>YK-T003</td>
+                                <td>Winter Tires</td>
+                                <td>Tires</td>
+                                <td>18</td>
+                                <td>$3,700</td>
+                                <td>$205.56</td>
+                                <td>4.4%</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3"><strong>Total</strong></td>
+                                <td><strong>515</strong></td>
+                                <td><strong>$85,240</strong></td>
+                                <td></td>
+                                <td><strong>100%</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Custom Report Builder -->
+                <div class="custom-report-builder">
+                    <h3>Custom Report Builder</h3>
+                    <div class="report-builder-form">
+                        <div class="form-group">
+                            <label for="report-metrics">Select Metrics:</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metric-sales" checked>
+                                    <label for="metric-sales">Sales</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metric-units">
+                                    <label for="metric-units">Units Sold</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metric-profit">
+                                    <label for="metric-profit">Profit</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="metric-customers">
+                                    <label for="metric-customers">Customers</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="report-dimensions">Group By:</label>
+                            <select id="report-dimensions">
+                                <option value="product">Product</option>
+                                <option value="category">Category</option>
+                                <option value="date">Date</option>
+                                <option value="customer">Customer</option>
+                                <option value="employee">Employee</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="generate-btn">Generate Report</button>
+                            <button type="button" class="reset-btn">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

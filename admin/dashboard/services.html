@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="services.css">
+    <script src="services.js"></script>
+    <title>Services Management - Yokohama Admin</title>
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">YOKOHAMA</div>
+        </div>
+       
+        <div class="admin-controls">
+            <div class="admin-name">Admin User</div>
+            <a href="../adminlogin/login-admin.html" id="logout-btn">Logout</a>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <!-- Left sidebar with navigation -->
+        <div class="admin-sidebar">
+            <div class="admin-nav">
+                <ul>
+                    
+                    <li><a href="admin.html" >Dashboard</a></li>
+                    <li><a href="orders.html" >Orders</a></li>
+                    <li><a href="services.html" >Services</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="reports.html" >Reports</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="admin-content">
+            <!-- Services Section -->
+            <section id="services" class="content-section active">
+                <div class="admin-header">
+                    <h1>Services Management</h1>
+                    <div class="action-bar">
+                        <div class="search-filter">
+                            <input type="text" id="service-search" placeholder="Search services...">
+                            <button id="search-btn">Search</button>
+                        </div>
+                        <button class="add-btn" id="add-service-btn">Add New Service</button>
+                    </div>
+                </div>
+
+                <!-- Services Overview -->
+                <div class="dashboard-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon">🔧</div>
+                        <div class="stat-title">Total Services</div>
+                        <div class="stat-number">24</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚗</div>
+                        <div class="stat-title">Active Services</div>
+                        <div class="stat-number">22</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-title">Popular Services</div>
+                        <div class="stat-number">Tire Rotation</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-title">Avg. Completion Time</div>
+                        <div class="stat-number">45 min</div>
+                    </div>
+                </div>
+
+                <!-- Services List -->
+                <div class="services-list">
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th>Service ID</th>
+                                <th>Service Name</th>
+                                <th>Category</th>
+                                <th>Duration</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ITEM-001</td>
+                                <td>Product A</td>
+                                <td>Tire Services</td>
+                                <td>30 mins</td>
+                                <td>$45.00</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SVC-002</td>
+                                <td>Oil Change</td>
+                                <td>Maintenance</td>
+                                <td>45 mins</td>
+                                <td>$75.00</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SVC-003</td>
+                                <td>Wheel Alignment</td>
+                                <td>Alignment & Balancing</td>
+                                <td>60 mins</td>
+                                <td>$120.00</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SVC-004</td>
+                                <td>Brake Pad Replacement</td>
+                                <td>Repairs</td>
+                                <td>90 mins</td>
+                                <td>$220.00</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SVC-005</td>
+                                <td>Tire Installation</td>
+                                <td>Tire Services</td>
+                                <td>45 mins</td>
+                                <td>$25.00 per tire</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SVC-006</td>
+                                <td>Air Conditioning Service</td>
+                                <td>Maintenance</td>
+                                <td>120 mins</td>
+                                <td>$150.00</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SVC-007</td>
+                                <td>Wheel Balancing</td>
+                                <td>Alignment & Balancing</td>
+                                <td>40 mins</td>
+                                <td>$80.00</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SVC-008</td>
+                                <td>Winter Package</td>
+                                <td>Seasonal</td>
+                                <td>180 mins</td>
+                                <td>$299.00</td>
+                                <td><span class="status-badge inactive">Inactive</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Service Modal Form (hidden by default) -->
+                <div id="service-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn">&times;</span>
+                        <h2>Add New Service</h2>
+                        <form id="service-form">
+                            <div class="form-group">
+                                <label for="service-name">Service Name:</label>
+                                <input type="text" id="service-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service-category">Category:</label>
+                                <select id="service-category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="tire">Tire Services</option>
+                                    <option value="maintenance">Maintenance</option>
+                                    <option value="repair">Repairs</option>
+                                    <option value="alignment">Alignment & Balancing</option>
+                                    <option value="seasonal">Seasonal</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="service-duration">Duration (minutes):</label>
+                                <input type="number" id="service-duration" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service-price">Price ($):</label>
+                                <input type="number" id="service-price" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service-description">Description:</label>
+                                <textarea id="service-description" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="service-status">Status:</label>
+                                <select id="service-status" required>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="submit-btn">Save Service</button>
+                                <button type="button" class="cancel-btn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    
+</body>
+</html>

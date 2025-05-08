@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management - Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">YOKOHAMA</div>
+        </div>
+       
+        <div class="admin-controls">
+            <div class="admin-name">Admin User</div>
+            <a href="../adminlogin/login-admin.html" id="logout-btn">Logout</a>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <!-- Left sidebar with navigation -->
+        <div class="admin-sidebar">
+            <div class="admin-nav">
+                <ul>
+                    
+                    <li><a href="admin.html" >Dashboard</a></li>
+                    <li><a href="orders.html" >Orders</a></li>
+                    <li><a href="services.html" >Services</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                    <li><a href="reports.html" >Reports</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Main content area -->
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1>Appointment Management</h1>
+                <div class="date-filter">
+                    <label for="month-select">Month:</label>
+                    <select id="month-select">
+                        <option value="5">May 2025</option>
+                        <option value="6">June 2025</option>
+                        <option value="7">July 2025</option>
+                        <option value="8">August 2025</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Appointment Overview -->
+            <div class="dashboard-overview">
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-title">Today's Appointments</div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-change positive">+2 from yesterday</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-title">Weekly Total</div>
+                    <div class="stat-number">42</div>
+                    <div class="stat-change positive">+5 from last week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-title">Average Service Time</div>
+                    <div class="stat-number">68 min</div>
+                    <div class="stat-change negative">+3 min from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-title">Completion Rate</div>
+                    <div class="stat-number">95%</div>
+                    <div class="stat-change positive">+2% from last month</div>
+                </div>
+            </div>
+
+            <!-- Appointment Calendar -->
+            <div class="appointment-content">
+                <h3>Monthly Calendar</h3>
+                <div class="calendar-container">
+                    <table class="calendar">
+                        <thead>
+                            <tr>
+                                <th>Sunday</th>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                                <th>Saturday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="date">28</div>
+                                </td>
+                                <td>
+                                    <div class="date">29</div>
+                                </td>
+                                <td>
+                                    <div class="date">30</div>
+                                </td>
+                                <td>
+                                    <div class="date">1</div>
+                                    <div class="appointment">9:00 - J. Smith (Tire Rotation)</div>
+                                    <div class="appointment">14:30 - M. Davis (Brake Service)</div>
+                                </td>
+                                <td>
+                                    <div class="date">2</div>
+                                    <div class="appointment">10:15 - K. Johnson (Oil Change)</div>
+                                </td>
+                                <td>
+                                    <div class="date">3</div>
+                                    <div class="appointment">11:00 - R. Brown (Wheel Alignment)</div>
+                                    <div class="appointment">15:45 - T. Garcia (Tire Installation)</div>
+                                </td>
+                                <td>
+                                    <div class="date">4</div>
+                                    <div class="appointment">9:30 - S. Lee (Full Inspection)</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="date">5</div>
+                                </td>
+                                <td>
+                                    <div class="date">6</div>
+                                    <div class="appointment">8:45 - A. Wilson (Oil Change)</div>
+                                    <div class="appointment">13:30 - C. Miller (Suspension Check)</div>
+                                </td>
+                                <td>
+                                    <div class="date">7</div>
+                                    <div class="appointment">10:00 - L. Taylor (Tire Rotation)</div>
+                                </td>
+                                <td>
+                                    <div class="date">8</div>
+                                    <div class="appointment">9:15 - D. Clark (Brake Service)</div>
+                                    <div class="appointment">14:00 - M. Rodriguez (Wheel Alignment)</div>
+                                </td>
+                                <td>
+                                    <div class="date">9</div>
+                                    <div class="appointment">11:30 - J. Martinez (Tire Installation)</div>
+                                </td>
+                                <td>
+                                    <div class="date">10</div>
+                                    <div class="appointment">13:00 - P. Lopez (Full Inspection)</div>
+                                    <div class="appointment">16:30 - B. Hall (Oil Change)</div>
+                                </td>
+                                <td>
+                                    <div class="date">11</div>
+                                </td>
+                            </tr>
+                            <!-- Additional rows would continue the calendar -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Add New Appointment Form -->
+                <h3>Schedule New Appointment</h3>
+                <div class="appointment-form">
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="customerName">Customer Name:</label>
+                            <input type="text" id="customerName" name="customerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerEmail">Customer Email:</label>
+                            <input type="email" id="customerEmail" name="customerEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Customer Phone:</label>
+                            <input type="tel" id="customerPhone" name="customerPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDate">Appointment Date:</label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentTime">Appointment Time:</label>
+                            <input type="time" id="appointmentTime" name="appointmentTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType">Service Type:</label>
+                            <select id="serviceType" name="serviceType" required>
+                                
